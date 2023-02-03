@@ -1,5 +1,4 @@
 # download-favicon-examples
-Descripción del código
 Este código se encarga de descargar el favicon de una página web dada su URL.
 
 La función downloadFavicon recibe como parámetro la URL de la página web y devuelve una promesa que se resuelve con un objeto que contiene la URL del blob del favicon y su formato.
