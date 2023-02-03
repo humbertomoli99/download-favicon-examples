@@ -1,22 +1,21 @@
 using System;
-using System.Net.Http;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
 using Microsoft.Web.WebView2.Core;
+using System.IO;
+using Microsoft.UI.Xaml.Controls;
 
-namespace DownloadFavicon
+namespace FaviconHelper
 {
-    class Program
+    public static class FaviconHelper
     {
-        static async Task Main(string[] args)
-        {
-            string url = "https://www.example.com";
-            await DownloadFaviconAsync(url);
-        }
-
-        private static async Task DownloadFaviconAsync(string url)
+        public static async Task DownloadFaviconAsync(string url)
         {
             // Crea una instancia de CoreWebView2
-            CoreWebView2 webView = new CoreWebView2();
+            WebView2 webView = new WebView2();
             try
             {
                 // Intenta descargar el favicon directamente a partir de la URL https://www.example.com/favicon.ico
