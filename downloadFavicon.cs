@@ -67,20 +67,21 @@ namespace DownloadFavicon
             }
         }
 
-        private string GetFaviconFormat(string faviconUrl)
+        private static string GetFaviconFormat(string faviconUrl)
         {
-            Dictionary<string, string> supportedFormats = new Dictionary<string, string>
+            // Obtener la extensión del archivo del favicon
+            string extension = Path.GetExtension(faviconUrl).ToLower().TrimStart('.');
+
+            // Comprobar si el formato es soportado
+            if (new List<string> { "ico", "png", "svg", "gif", "jpg" }.Contains(extension))
             {
-                { "ico", "ico" },
-                { "png", "png" },
-                { "svg", "svg" },
-                { "gif", "gif" },
-                { "jpg", "jpg" }
-            };
-
-            string extension = Path.GetExtension(faviconUrl).TrimStart('.');
-
-            return supportedFormats.ContainsKey(extension) ? supportedFormats[extension] : throw new Exception("Formato de favicon no soportado");
+                return extension;
+            }
+            else
+            {
+                // Si el formato no es soportado, lanzar una excepción
+                throw new Exception("Formato de favicon no soportado");
+            }
         }
     }
 }
