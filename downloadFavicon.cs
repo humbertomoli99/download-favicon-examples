@@ -12,6 +12,11 @@ namespace FaviconHelper
 {
     public static class FaviconHelper
     {
+        static async Task Main(string[] args)
+        {
+            string url = "https://www.example.com";
+            await DownloadFaviconAsync(url);
+        }
         public static async Task DownloadFaviconAsync(string url)
         {
             // Crea una instancia de CoreWebView2
